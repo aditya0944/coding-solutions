@@ -36,34 +36,39 @@ Output: 4
 ## Solution
 
 **Language:** C++  
-**Runtime:** 21 ms (beats 60.55%)  
-**Memory:** 81.2 MB (beats 84.56%)  
-**Submitted:** 2026-11-04T21:24:17.376Z  
+**Runtime:** 20 ms (beats 66.43%)  
+**Memory:** 81.4 MB (beats 67.92%)  
+**Submitted:** 2026-11-04T21:24:49.006Z  
 
 ```cpp
+#include <vector>
+#include <stack>
+#include <algorithm>
+
 class Solution {
 public:
-    int largestRectangleArea(vector<int>& heights) {
-        stack<int> st; 
-        int max_area = 0;
-        heights.push_back(0);
+    int largestRectangleArea(std::vector<int>& heights) {
+        std::stack<int> st;
+        int maxArea = 0;
         int n = heights.size();
         
-        for (int i = 0; i < n; ++i) {
-            while (!st.empty() && heights[i] < heights[st.top()]) {
-                int h = heights[st.top()];
+        for (int i = 0; i <= n; ++i) {
+            int currentHeight = (i == n) ? 0 : heights[i];
+            
+            while (!st.empty() && heights[st.top()] > currentHeight) {
+                int height = heights[st.top()];
                 st.pop();
-                int width = st.empty() ? i : (i - st.top() - 1);
                 
-                max_area = std::max(max_area, h * width);
+                int width = st.empty() ? i : i - st.top() - 1;
+                maxArea = std::max(maxArea, height * width);
             }
             st.push(i);
         }
-        heights.pop_back();
         
-        return max_area;
+        return maxArea;
     }
 };
+
 ```
 
 ---
