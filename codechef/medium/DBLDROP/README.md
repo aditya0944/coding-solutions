@@ -66,7 +66,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-25T14:54:47.559Z  
+**Submitted:** 2026-11-25T14:56:53.476Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -78,19 +78,19 @@ int main() {
     while(t--){
         int n;
         cin>>n;
-        vector<int>a(n);
-        int sum=0;
-        int mx=0;
+        vector<long long>a(n);
+        long long sum=0;
+        long long mx=0;
         for(int i=0;i<n;i++){
             cin>>a[i];
             sum+=a[i];
             mx=max(mx,a[i]);
             
         }
-        int ans=sum-mx;
+        long long ans=sum-mx;
         for(int i=0;i<n;i++){
-            int newsum=sum+a[i];
-            int newmx=max(mx,2*a[i]);
+            long long newsum=sum+a[i];
+            long long newmx=max(mx,2*a[i]);
             ans=max(ans,newsum-newmx);
         }
         cout<<ans<<endl;
