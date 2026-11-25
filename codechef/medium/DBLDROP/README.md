@@ -66,7 +66,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-25T14:54:19.846Z  
+**Submitted:** 2026-11-25T14:54:47.559Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -95,7 +95,7 @@ int main() {
         }
         cout<<ans<<endl;
     }
-    
+    return 0;
 }
 
 ```
