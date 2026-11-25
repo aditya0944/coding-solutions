@@ -1,0 +1,46 @@
+#include <bits/stdc++.h>
+using namespace std;
+int dist(int r1, int c1, int r2, int c2) {
+    return max(abs(r1 - r2), abs(c1 - c2));
+}
+int main() {
+    int T;
+    cin >> T;
+
+    while (T--) {
+        int N, M, r, c;
+        cin >> N >> M;
+        cin >> r >> c;
+
+        vector<pair<int, int>> corners = {
+            {1, 1},
+            {1, M},
+            {N, 1},
+            {N, M}
+        };
+
+        vector<int> p = {0, 1, 2, 3};
+        int ans = 1e9;
+
+        do {
+            int moves = dist(r, c, corners[p[0]].first,
+                                  corners[p[0]].second);
+
+            for (int i = 1; i < 4; i++) {
+                moves += dist(corners[p[i - 1]].first,
+                              corners[p[i - 1]].second,
+                              corners[p[i]].first,
+                              corners[p[i]].second);
+            }
+
+            ans = min(ans, moves);
+
+        } while (next_permutation(p.begin(), p.end()));
+
+        cout << ans << endl;
+    }
+
+    return 0;
+
+
+}
