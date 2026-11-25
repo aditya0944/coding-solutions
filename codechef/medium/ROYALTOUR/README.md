@@ -64,24 +64,29 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-25T14:58:53.975Z  
+**Submitted:** 2026-11-25T15:00:42.485Z  
 
 ```c_cpp
-#include <bits/stdc++.h>
+#include <iostream>
+#include <climits>
+#include <vector>
+#include <algorithm>
 using namespace std;
-int dist(int r1, int c1, int r2, int c2) {
+
+long long dist(long long r1, long long c1, long long r2, long long c2) {
     return max(abs(r1 - r2), abs(c1 - c2));
 }
+
 int main() {
     int T;
     cin >> T;
 
     while (T--) {
-        int N, M, r, c;
+        long long N, M, r, c;
         cin >> N >> M;
         cin >> r >> c;
 
-        vector<pair<int, int>> corners = {
+        vector<pair<long long, long long>> corners = {
             {1, 1},
             {1, M},
             {N, 1},
@@ -89,10 +94,11 @@ int main() {
         };
 
         vector<int> p = {0, 1, 2, 3};
-        int ans = 1e9;
+        long long ans = LLONG_MAX;
 
         do {
-            int moves = dist(r, c, corners[p[0]].first,
+            long long moves = dist(r, c,
+                                  corners[p[0]].first,
                                   corners[p[0]].second);
 
             for (int i = 1; i < 4; i++) {
@@ -106,12 +112,10 @@ int main() {
 
         } while (next_permutation(p.begin(), p.end()));
 
-        cout << ans << endl;
+        cout << ans << '\n';
     }
 
     return 0;
-
-
 }
 ```
 
