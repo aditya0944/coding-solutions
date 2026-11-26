@@ -75,7 +75,7 @@ Thus, the final array is $[3, 3, 3, 3]$.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-26T16:48:44.265Z  
+**Submitted:** 2026-11-26T16:50:39.749Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
