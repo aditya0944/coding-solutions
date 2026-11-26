@@ -64,11 +64,10 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-25T15:00:42.485Z  
+**Submitted:** 2026-11-25T14:59:53.144Z  
 
 ```c_cpp
 #include <iostream>
-#include <climits>
 #include <vector>
 #include <algorithm>
 using namespace std;
